@@ -10,6 +10,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,6 +22,18 @@
         @endif
     </head>
     <body class=" text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <h1>Laravel</h1>
+    <form action="{{route('alumnos.index')}}" method="get">
+  <div class="mb-3">
+    <label for="user" class="form-label">Usuario</label>
+    <input type="text" class="form-control" id="user" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
     </body>
 </html>

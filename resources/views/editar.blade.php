@@ -7,14 +7,9 @@
   <meta name="description" content="">
   <meta name="theme-color" content="#000000" />
 
-  <title>Modificaciones</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
+  <title>ALTAS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 
 </head>
 
@@ -23,8 +18,7 @@
   <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="">
-          <img src="../public/assets/images/estudiantes.png" class="img-fluid"></a>
+        <img src="" class="img-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
           aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -48,21 +42,23 @@
     </nav>
   </header>
 
-
   <div class="container mt-5 mb-5">
 
     <div class="row">
 
       <div class="col-md-12">
+
         <h1 style="font-size: 28px; margin-top: 50px;" class=" text-center">SERVICIOS ESCOLARES </h1>
 
         <div class="page-content">
           <div class="row">
+
             <div class="col-md-10">
+
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/">Alumnos</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Modificar</li>
+                  <li class="breadcrumb-item"><a href="/alumnos">Alumnos</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Agregar</li>
                 </ol>
               </nav>
 
@@ -74,27 +70,33 @@
 
                     <div class="panel-heading">
                       <div class="panel-title">
-                        <h2>Modificar Datos</h2>
+                        <h2>MODIFICAR ALUMNO</h2>
                       </div>
+
                     </div>
 
                     <div class="panel-body">
+
                       <section class="example mt-4">
 
+                        <form method="POST" action="{{ route('alumnos.update', $alumno->id) }}" role="form" enctype="multipart/form-data" onsubmit="return confirmarModificacion()">
+                                                        <!--ENCTYPE ES IMPORTANTE -->
 
-                        <form id="actualizar" action="/alumnos" method="POST" role="form" enctype="application/x-www-form-urlencoded">
-                          <input type="hidden" name="id" id="id">
+                          <input type="hidden" name="_method" value="PUT">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 
                           <div class="mb-3">
                             <label for="Num_Control" class="negrita">Numero de Control:</label>
                             <div>
-                              <input class="form-control" placeholder="Solo nuemros" required="required"
-                                name="Num_Control" type="text" id="Num_Control" readonly>
+                                <input class="form-control" placeholder="Solo numeros" required="required"
+                                name="Num_Control" type="text" id="Num_Control"
+                                value="{{$alumno->Num_Control}}">
                             </div>
                           </div>
 
                           <div class="mb-3">
-                            <label for="Nombre" class="negrita">Nombre:</label>
+                            <label for="nombre" class="negrita">Nombre:</label>
                             <div>
                               <input class="form-control" placeholder="Solo letras" required="required" name="Nombre"
                                 type="text" id="Nombre">
@@ -102,23 +104,23 @@
                           </div>
 
                           <div class="mb-3">
-                            <label for="PrimerAp" class="negrita">Primer Ap:</label>
+                            <label for="primer_ap" class="negrita">Primer Ap:</label>
                             <div>
-                              <input class="form-control" placeholder="Solo letras" required="required" name="PrimerAp"
-                                type="text" id="PrimerAp">
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Primer_Ap"
+                                type="text" id="Primer_Ap">
                             </div>
                           </div>
 
                           <div class="mb-3">
-                            <label for="SegundoAp" class="negrita">Segundo Ap:</label>
+                            <label for="segundo_ap" class="negrita">Segundo Ap:</label>
                             <div>
                               <input class="form-control" placeholder="Solo letras" required="required"
-                                name="SegundoAp" type="text" id="SegundoAp">
+                                name="Segundo_Ap" type="text" id="Segundo_Ap">
                             </div>
                           </div>
 
                           <div class="mb-3">
-                            <label for="Fecha_Nac" class="negrita">Fecha de Nacimiento:</label>
+                            <label for="fecha_nac" class="negrita">Fecha de Nacimiento:</label>
                             <div>
                               <input class="form-control" placeholder="Solo letras" required="required" name="Fecha_Nac"
                                 type="text" id="Fecha_Nac" value="2025-10-10">
@@ -126,7 +128,7 @@
                           </div>
 
                           <div class="mb-3">
-                            <label for="Semestre" class="negrita">Semestre:</label>
+                            <label for="semestre" class="negrita">Semestre:</label>
                             <div>
                               <input class="form-control" placeholder="Solo letras" required="required" name="Semestre"
                                 type="text" id="Semestre">
@@ -134,16 +136,15 @@
                           </div>
 
                           <div class="mb-3">
-                            <label for="Carrera" class="negrita">Carrera:</label>
+                            <label for="carrera" class="negrita">Carrera:</label>
                             <div>
                               <input class="form-control" placeholder="Solo letras" required="required" name="Carrera"
                                 type="text" id="Carrera">
                             </div>
                           </div>
 
-                          <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                          <a href="/" class="btn btn-warning">Cancelar</a>
-
+                          <button type="submit" class="btn btn-success">Guardar</button>
+                          <a href="/alumnos" class="btn btn-warning">Cancelar</a>
                         </form>
 
                       </section>
@@ -176,12 +177,19 @@
       </div>
     </footer>
 
-    <!-- CARGAR DATOS EN FOMRULARIO PARA SU POSIBLE LA EDICION-->
-    
 
-</body>
+    <script type="text/javascript">
 
+      function confirmarModificacion()
+      {
+      var x = confirm("Estas seguro de Modificar?");
+      if (x)
+        return true;
+      else
+        return false;
+      }
 
+  </script>
 
 </body>
 

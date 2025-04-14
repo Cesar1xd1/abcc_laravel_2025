@@ -8,9 +8,8 @@
   <meta name="theme-color" content="#000000" />
 
   <title>ALTAS</title>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 
 </head>
 
@@ -19,8 +18,7 @@
   <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="../public/assets/images/estudiantes.png" class="img-fluid"></a>
+        <img src="" class="img-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
           aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -59,7 +57,7 @@
 
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/">Alumnos</a></li>
+                  <li class="breadcrumb-item"><a href="/alumnos">Alumnos</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Agregar</li>
                 </ol>
               </nav>
@@ -81,68 +79,69 @@
 
                       <section class="example mt-4">
 
-                        <form action="{{ route('alumnos.store') }}" 
-                                    role="form" enctype="application/x-www-form-urlencoded">
-                                    @csrf
-                                                <!--ENCTYPE ES IMPORTANTE -->
-                          <div class="mb-3">
-                              <label for="num_control" class="negrita">Numero de Control:</label>
-                              <div>
-                                <input class="form-control" placeholder="Solo nuemros" required="required"
-                                  name="Num_Control" type="text" id="Num_Control">
-                              </div>
-                          </div>
-
-                          <div class="mb-3">
-                              <label for="nombre" class="negrita">Nombre:</label>
-                              <div>
-                                <input class="form-control" placeholder="Solo letras" required="required"
-                                  name="Nombre" type="text" id="Nombre">
-                              </div>
-                          </div>
-
-                          <div class="mb-3">
-                            <label for="Primer_Ap" class="negrita">Primer Ap:</label>
-                            <div>
-                              <input class="form-control" placeholder="Solo letras" required="required"
-                                name="Primer_Ap" type="text" id="Primer_Ap">
-                            </div>
-                        </div>
+                        <form method="POST" action="{{ route('alumnos.store') }}"
+                        role="form" enctype="application/x-www-form-urlencoded">
+                                                        <!--ENCTYPE ES IMPORTANTE -->
+                        @csrf
 
                         <div class="mb-3">
-                          <label for="Segundo_Ap" class="negrita">Segundo Ap:</label>
-                          <div>
-                            <input class="form-control" placeholder="Solo letras" required="required"
-                              name="Segundo_Ap" type="text" id="Segundo_Ap">
+                            <label for="num_control" class="negrita">Numero de Control:</label>
+                            <div>
+                                <input class="form-control" placeholder="Solo nuemros" required="required"
+                                name="Num_Control" type="text" id="Num_Control">
+                            </div>
                           </div>
-                      </div>
 
-                      <div class="mb-3">
-                        <label for="Fecha_Nac" class="negrita">Fecha de Nacimiento:</label>
-                        <div>
-                          <input class="form-control" placeholder="Solo letras" required="required"
-                            name="Fecha_Nac" type="text" id="Fecha_Nac" value="2025-10-10">
-                        </div>
-                    </div>
+                          <div class="mb-3">
+                            <label for="nombre" class="negrita">Nombre:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Nombre"
+                                type="text" id="Nombre">
+                            </div>
+                          </div>
 
-                    <div class="mb-3">
-                      <label for="Semestre" class="negrita">Semestre:</label>
-                      <div>
-                        <input class="form-control" placeholder="Solo letras" required="required"
-                          name="Semestre" type="text" id="Semestre">
-                      </div>
-                  </div>
+                          <div class="mb-3">
+                            <label for="primer_ap" class="negrita">Primer Ap:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Primer_Ap"
+                                type="text" id="Primer_Ap">
+                            </div>
+                          </div>
 
-                  <div class="mb-3">
-                    <label for="Carrera" class="negrita">Carrera:</label>
-                    <div>
-                      <input class="form-control" placeholder="Solo letras" required="required"
-                        name="Carrera" type="text" id="Carrera">
-                    </div>
-                </div>
+                          <div class="mb-3">
+                            <label for="segundo_ap" class="negrita">Segundo Ap:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required"
+                                name="Segundo_Ap" type="text" id="Segundo_Ap">
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="fecha_nac" class="negrita">Fecha de Nacimiento:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Fecha_Nac"
+                                type="text" id="Fecha_Nac" value="2025-10-10">
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="semestre" class="negrita">Semestre:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Semestre"
+                                type="text" id="Semestre">
+                            </div>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="carrera" class="negrita">Carrera:</label>
+                            <div>
+                              <input class="form-control" placeholder="Solo letras" required="required" name="Carrera"
+                                type="text" id="Carrera">
+                            </div>
+                          </div>
 
                           <button type="submit" class="btn btn-success">Guardar</button>
-                          <a href="/" class="btn btn-warning">Cancelar</a>
+                          <a href="/alumnos" class="btn btn-warning">Cancelar</a>
                         </form>
 
                       </section>
@@ -175,8 +174,6 @@
       </div>
     </footer>
 
-    <!-- JS Bootstrap  -->
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 
 </body>
 

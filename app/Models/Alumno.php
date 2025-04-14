@@ -1,11 +1,14 @@
 <?php
+
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
 
-    Class Alumno extends Model{
+    class Alumno extends Model{
         use HasFactory;
+
+        protected $table = 'alumnos';
 
         protected $fillable = [
             'Num_Control',
@@ -14,10 +17,9 @@
             'Segundo_Ap',
             'Fecha_Nac',
             'Semestre',
-            'Carrera'
+            'Carrera',
         ];
     }
-
 
 
 ?>

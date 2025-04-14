@@ -9,11 +9,7 @@
 
   <title>Detalle de Alumno</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
@@ -22,8 +18,7 @@
   <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="">
-          <img src="../public/assets/images/estudiantes.png" class="img-fluid"></a>
+        <img src="../../static/assets/images/estudiantes.png" class="img-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
           aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -62,7 +57,7 @@
 
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/">Alumnos</a></li>
+                  <li class="breadcrumb-item"><a href="/alumnos">Alumnos</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Detalle</li>
                 </ol>
               </nav>
@@ -85,26 +80,18 @@
                       <section class="example mt-4">
 
                         <h5>Numero de Control: </h5>
-                        <p id="num_control" class="example ml-4"></p>
+                        <p id="num_control" class="example ml-4"">
+                          {{$alumno->Num_Control }}
+                        </p>
 
                         <h5>Nombre: </h5>
-                        <p id="nombre"></p>
-                        <p id="primerAp"></p>
-                        <p id="segundoAp"></p>
-
-                        <h5>Fecha de nacimiento: </h5>
-                        <p id="fecha_nac"></p>
-
-                        <h5>Semestre: </h5>
-                        <p id="semestre"></p>
-
-                        <h5>Carrera: </h5>
-                        <p id="carrera"></p>
-
+                        <p id="nombre">
+                            {{$alumno->Nombre }}
+                        </p>
 
                       </section>
 
-                      <a href="/" class="btn btn-warning mt-3">Volver</a>
+                      <a href="/alumnos" class="btn btn-warning mt-3">Volver</a>
 
 
                     </div>
@@ -131,44 +118,6 @@
         FOOTER
       </div>
     </footer>
-
-    <!-- JS Bootstrap  -->
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-
-  <script type="text/javascript">
-
-    var url = new URL(window.location.href);
-    const id = url.searchParams.get("id");
-
-    fetch("alumnos/" + id).then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-    }).then(data => {
-      if (data) {
-        console.log(data);
-
-        const lista = data;
-
-        lista.forEach((a) => {
-          document.getElementById("num_control").innerHTML = a.Num_Control;
-          document.getElementById("nombre").innerHTML = a.Nombre;
-          document.getElementById("primerAp").innerHTML = a.PrimerAp;
-          document.getElementById("segundoAp").innerHTML = a.SegundoAp;
-          document.getElementById("fecha_nac").innerHTML = a.Fecha_Nac;
-          document.getElementById("semestre").innerHTML = a.Semestre;
-          document.getElementById("carrera").innerHTML = a.Carrera;
-          
-        });
-
-
-      };
-
-    }
-    ).catch(err => console.error(err));
-
-
-  </script>
 
 </body>
 
