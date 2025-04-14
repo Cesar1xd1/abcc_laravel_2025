@@ -10,6 +10,7 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 @section('content_header')
     <h1 class="text-center">SERVICIOS ESCOLARES</h1>
@@ -83,8 +84,7 @@
 
 @section('js')
     <!-- JQuery para ocultar mensajes -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
     <script>
         $(document).ready(function () {
