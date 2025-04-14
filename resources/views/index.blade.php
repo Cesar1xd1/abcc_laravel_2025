@@ -11,6 +11,41 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- JQuery para ocultar mensajes -->
+      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Ocultar alertas con fade
+            setTimeout(function () {
+                $("#msj").fadeOut(1500);
+            }, 3000);
+
+            // Confirmación para eliminar
+          
+            // Mostrar SweetAlert si hay mensaje de éxito
+            @if(session('exito'))
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: '{{ session('exito') }}',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+            @endif
+
+            @if(session('eliminado'))
+                Swal.fire({
+                    title: '¡Éxito!',
+                    text: '{{ session('eliminado') }}',
+                    icon: 'info',
+                    confirmButtonText: 'Aceptar'
+                });
+            @endif
+
+            
+        });
+    </script>
 @endsection
 @section('content_header')
     <h1 class="text-center">SERVICIOS ESCOLARES</h1>
@@ -82,39 +117,4 @@
     </div>
 @endsection
 
-@section('js')
-    <!-- JQuery para ocultar mensajes -->
-    
 
-    <script>
-        $(document).ready(function () {
-            // Ocultar alertas con fade
-            setTimeout(function () {
-                $("#msj").fadeOut(1500);
-            }, 3000);
-
-            // Confirmación para eliminar
-          
-            // Mostrar SweetAlert si hay mensaje de éxito
-            @if(session('exito'))
-                Swal.fire({
-                    title: '¡Éxito!',
-                    text: '{{ session('exito') }}',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                });
-            @endif
-
-            @if(session('eliminado'))
-                Swal.fire({
-                    title: '¡Éxito!',
-                    text: '{{ session('eliminado') }}',
-                    icon: 'info',
-                    confirmButtonText: 'Aceptar'
-                });
-            @endif
-
-            
-        });
-    </script>
-@endsection
